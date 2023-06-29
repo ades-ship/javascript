@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <script src="p1.js"></script> -->
+</head>
+<body>
+    <script>
+    function f(){    
+let myButton = document.querySelector("button");
+let myHeading = document.querySelector("h1");
+
+
+
+function setUserName() {
+    const myName = prompt("Please enter your name.");
+    if (!myName) {
+      setUserName();
+    } else {
+      localStorage.setItem("name", myName);
+      myHeading.textContent = `Mozilla is cool, ${myName}`;
+    }
+  }  
+
+
+  if (!localStorage.getItem("name")) {
+    setUserName();
+  } else {
+    const storedName = localStorage.getItem("name");
+    myHeading.textContent = `Mozilla is cool, ${storedName}`;
+  }
+
+  myButton.onclick=()=>{
+    setUserName();
+  }
+}
+    </script>
+    <!--  create the function to change the name through localstorage functionality -->
+    <button onclick="f()">change button</button>
+    <h1>adesh</h1>
+</body>
+</html>
